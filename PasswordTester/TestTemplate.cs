@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace PasswordTester
 {
-    class Program
+    abstract class TestTemplate : ITestTemplate
     {
-        static void Main(string[] args)
-        {
-        }
+        public abstract bool CheckCondition(string password);     
+
     }
 }
