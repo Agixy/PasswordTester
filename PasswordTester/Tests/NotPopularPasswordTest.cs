@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace PasswordTester.Tests
 {
-    //class NotPopularTest : TestTemplate
-    //{
-    //    //protected override void CheckCondition()
-    //    //{
-    //    //    throw new NotImplementedException();
-    //    //}
-    //}
+    class NotPopularPasswordTest : TestTemplate
+    {
+        //protected override void CheckCondition()
+        //{
+        //    throw new NotImplementedException();
+        //}
+        public override bool CheckCondition(string password)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

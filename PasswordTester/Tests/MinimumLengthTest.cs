@@ -15,6 +15,10 @@ namespace PasswordTester.Tests
             MinLenght = minLenght;
         }
 
+        public MinimumLengthTest()
+        {
+        }
+
         public override bool CheckCondition(string password)
         {
             if (password.Length < MinLenght)
