@@ -18,18 +18,7 @@ namespace PasswordTester
                 var user = new UserComunication();
                 string password = user.EnterPassword();
 
-                try
-                {
-                    var minLenght = new MinimumLengthTest(5);
-                    bool a = minLenght.CheckCondition(password);
-
-                    var digitInside = new DigitInsideTest();
-                    bool b = digitInside.CheckCondition(password);
-                }
-                catch(Exception e)
-                {
-                    user.ShowMessage(e.Message);
-                }
+                
 
             } while (true);
         }

@@ -9,14 +9,17 @@ namespace PasswordTester
 {
     public class TestsContainter
     {
-        public List<TestTemplate> testList { get; } = new List<TestTemplate>();
+        public TestTemplate[] Tests = null;
 
         public TestsContainter()
         {
-            testList.Add(new DigitInsideTest());
-            testList.Add(new MinimumLengthTest());
-            testList.Add(new NotPopularPasswordTest());
-            testList.Add(new SpecialCharTest());
+            Tests = new TestTemplate[]
+            {
+             new MinimumLengthTest(5),
+             new DigitInsideTest(),
+             new NotPopularPasswordTest(),
+             new SpecialCharTest(),
+            };
         }
     }
 }

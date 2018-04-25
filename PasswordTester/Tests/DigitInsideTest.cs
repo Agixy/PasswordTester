@@ -9,15 +9,15 @@ namespace PasswordTester.Tests
 {
     class DigitInsideTest : TestTemplate
     {
-        public override bool CheckCondition(string password)
+        public override void CheckCondition(string password)
         {
             var regex = new Regex(@"\d");
             Match match = regex.Match(password);
 
             if (match.Success)
-                return true;
+                nextTest.CheckCondition(password);
             else
-                return false;
+                throw new Exception("Hasło nie zawiera cyfr");
         }
     }
 }

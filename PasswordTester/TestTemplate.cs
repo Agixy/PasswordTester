@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace PasswordTester
 {
-    public abstract class TestTemplate : ITestTemplate
+    public abstract class TestTemplate
     {
+        protected TestTemplate nextTest;
 
-        public abstract bool CheckCondition(string password);
+        public abstract void CheckCondition(string password);
 
-        public TestTemplate CheckNext(TestTemplate nextTest)
+        public void CheckNext(TestTemplate test)
         {
-            return nextTest;
+            nextTest = test;
         }
 
     }

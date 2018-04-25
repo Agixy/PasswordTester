@@ -8,11 +8,12 @@ namespace PasswordTester
 { 
     public class Builder
     {
-        private TestsContainter testContainer;
 
-        void CreateChainOfTests()
+        public void CreateChainOfTests(TestTemplate[] testsList)
         {
-            testContainer.testList[0].CheckNext(testContainer.testList[1]).CheckNext(testContainer.testList[2]).CheckNext(testContainer.testList[3]);
+            testsList[0].CheckNext(testsList[1]);
+            testsList[1].CheckNext(testsList[2]);
+            testsList[2].CheckNext(testsList[3]);
         }
     }
 }

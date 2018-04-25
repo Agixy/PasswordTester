@@ -12,9 +12,14 @@ namespace PasswordTester.Tests
         //{
         //    throw new NotImplementedException();
         //}
-        public override bool CheckCondition(string password)
+        public override void CheckCondition(string password)
         {
-            throw new NotImplementedException();
+            if (true)
+            {
+                nextTest.CheckCondition(password);
+            }
+            else
+                throw new Exception("Zbyt popularne hasło");
         }
     }
 }

@@ -11,14 +11,18 @@ namespace Program
     {
         static void Main(string[] args)
         {
+            var builder = new Builder();
             var testContainer = new TestsContainter();
 
-            var chain = Te
+            builder.CreateChainOfTests(testContainer.Tests);
 
+            testContainer.Tests[0].CheckCondition("qwerty54rt");
 
-            var flow = new TestingFlow();
+            Console.WriteLine("aaa");
 
-            flow.Flow();
+            //var flow = new TestingFlow();
+
+            //flow.Flow();
 
 
         }

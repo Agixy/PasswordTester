@@ -19,16 +19,18 @@ namespace PasswordTester.Tests
         {
         }
 
-        public override bool CheckCondition(string password)
+        public override void CheckCondition(string password)
         {
-            if (password.Length < MinLenght)
+            
+            if (password.Length > MinLenght)
             {
-                throw new Exception("Hasło za krotkie");
+                nextTest.CheckCondition(password);
             }
             else
-                return true;
+                throw new Exception("Hasło za krotkie");
 
-            return false; // ???? jakt o zrobic
+
+
    
         }
 

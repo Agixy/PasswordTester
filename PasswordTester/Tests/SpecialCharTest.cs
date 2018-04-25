@@ -8,9 +8,9 @@ namespace PasswordTester.Tests
 {
     class SpecialCharTest : TestTemplate
     {
-        public override bool CheckCondition(string password)
+        public override void CheckCondition(string password)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("4 special");
         }
     }
 }
