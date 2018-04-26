@@ -11,11 +11,11 @@ namespace PasswordTester
     {
         public TestTemplate[] Tests = null;
 
-        public TestsContainter()
+        public TestsContainter(int minLenghTest)        // czy ok.?
         {
             Tests = new TestTemplate[]
             {
-             new MinimumLengthTest(5),
+             new MinimumLengthTest(minLenghTest),
              new DigitInsideTest(),
              new NotPopularPasswordTest(),
              new SpecialCharTest(),

@@ -20,6 +20,8 @@ namespace Program
 
             Console.WriteLine("aaa");
 
+            TestTemplate aaa = builder.CreateChainOfTests();
+
             //var flow = new TestingFlow();
 
             //flow.Flow();

@@ -3,17 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PasswordTester.LevelBuilders;
 
 namespace PasswordTester
 { 
     public class Builder
     {
 
-        public void CreateChainOfTests(TestTemplate[] testsList)
+        public void CreateChainOfTests(int level)
         {
-            testsList[0].CheckNext(testsList[1]);
-            testsList[1].CheckNext(testsList[2]);
-            testsList[2].CheckNext(testsList[3]);
+            LevelBuilder levelBuilder = null;
+
+            if (level == 1)     // lepiej switch case?
+            {
+                levelBuilder = new Level1Builder();
+            }
+            else if(level == 2)
+            {
+                levelBuilder = new Level2Builder();
+            }
+            else if(level == 3)
+            {
+                levelBuilder = new Level3Builder();
+            }
+            else
+            {
+                Console.WriteLine("błędny lvl");        // wywalic do userCom
+            }
+            
         }
     }
 }
