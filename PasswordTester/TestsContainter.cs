@@ -9,17 +9,17 @@ namespace PasswordTester
 {
     public class TestsContainter
     {
-        public TestTemplate[] Tests = null;
+        //public TestTemplate[] Tests = null;
 
-        public TestsContainter(int minLenghTest)        // czy ok.?
-        {
-            Tests = new TestTemplate[]
-            {
-             new MinimumLengthTest(minLenghTest),
-             new DigitInsideTest(),
-             new NotPopularPasswordTest(),
-             new SpecialCharTest(),
-            };
-        }
+        //public TestsContainter(int minLenghTest)        // czy ok takie podawanie długosci.?
+        //{
+        //    Tests = new TestTemplate[]
+        //    {
+        //        new MinimumLengthTest(minLenghTest),
+        //        new NotPopularPasswordTest(),
+        //        new DigitInsideTest(),
+        //        new SpecialCharTest(),
+        //    };
+        //}
     }
 }

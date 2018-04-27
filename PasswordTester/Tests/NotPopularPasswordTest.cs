@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,18 +9,18 @@ namespace PasswordTester.Tests
 {
     class NotPopularPasswordTest : TestTemplate
     {
-        //protected override void CheckCondition()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        private string[] popularPassFile; // zabezpieczac to jakos? readonly?
+
         public override void CheckCondition(string password)
         {
-            if (true)
+            popularPassFile = File.ReadAllLines("PopularPasswords.txt");        // tak czy ma czytać bezposrednio z internetu?
+
+            if (!popularPassFile.Contains(password))
             {
                 nextTest.CheckCondition(password);
             }
             else
-                throw new Exception("Zbyt popularne hasło");
+                throw new Exception("Hasło należy do zbyt popularnych");
         }
     }
 }

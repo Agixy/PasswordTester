@@ -11,7 +11,7 @@ namespace PasswordTester.Tests
     {
         public override void CheckCondition(string password)
         {
-            var regex = new Regex(@"\W");   // do poprawy
+            var regex = new Regex(@"[^a-zA-Z\d\s]");   // do poprawy -> a-z A-Z
             Match match = regex.Match(password);
 
             if (match.Success)

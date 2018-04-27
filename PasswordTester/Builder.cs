@@ -4,11 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PasswordTester.LevelBuilders;
+using PasswordTester.Tests;
 
 namespace PasswordTester
 { 
-    public class Builder
+    public class Builder // -  ma obslugiwac rozne przypadki. Wszystkie lvle
     {
+        public TestTemplate[] Tests = null;
+
+        public Builder()        // czy ok takie podawanie długosci.?
+        {
+            Tests = new TestTemplate[]
+            {
+                new MinimumLengthTest(),
+                new NotPopularPasswordTest(),
+                new DigitInsideTest(),
+                new SpecialCharTest(),
+            };
+        }
 
         public void CreateChainOfTests(int level)
         {
@@ -16,7 +29,7 @@ namespace PasswordTester
 
             if (level == 1)     // lepiej switch case?
             {
-                levelBuilder = new Level1Builder();
+                levelBuilder = new Level1Factory();
             }
             else if(level == 2)
             {

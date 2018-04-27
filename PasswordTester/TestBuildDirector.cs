@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PasswordTester
 {
-    class TestBuildDirector
+    class TestBuildDirector     // czy to ma byc?
     {
     }
 }

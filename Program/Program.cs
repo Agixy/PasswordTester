@@ -11,21 +11,37 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            var builder = new Builder();
-            var testContainer = new TestsContainter();
+            Console.WriteLine("Podaj hasło");            // -> uzytkownik ma wybierac
+            string password = Console.ReadLine();
 
-            builder.CreateChainOfTests(testContainer.Tests);
+            Console.WriteLine("Jaki poziom hasła chcesz spradzić?");
+            int lvl = int.Parse(Console.ReadLine());
 
-            testContainer.Tests[0].CheckCondition("qwerty54rt");
+            switch (lvl)
+            {
+                case 1:
+                    new Level1F
+                    break;
+                case 2:
+                    Console.WriteLine();
+                    break;
+                case 3:
+                    Console.WriteLine();
+                    break;
+            }
+                
+                                                        
+            builder.CreateChainOfTests(1);  // poszczegolne poziomy hasła
+            //builder.CreateChainOfTests(2);
+            //builder.CreateChainOfTests(3);
+
+
 
             Console.WriteLine("aaa");
 
-            TestTemplate aaa = builder.CreateChainOfTests();
-
-            //var flow = new TestingFlow();
+            //var flow = new TestingFlow();     // robic to? -> nie
 
             //flow.Flow();
-
 
         }
     }

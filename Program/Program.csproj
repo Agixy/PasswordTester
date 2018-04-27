@@ -54,5 +54,10 @@
       <Name>PasswordTester</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="PopularPasswords.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
