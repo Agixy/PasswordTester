@@ -11,13 +11,15 @@ namespace PasswordTester.Tests
     {
         public override void CheckCondition(string password)
         {
-            var regex = new Regex(@"[^a-zA-Z\d\s]");   // do poprawy -> a-z A-Z
+            var regex = new Regex(@"[^a-zA-Z\d\s]");  
             Match match = regex.Match(password);
 
-            if (match.Success)
-            {            
-                Console.WriteLine("4 special");
+            if (match.Success && nextTest != null)
+            {
+                nextTest.CheckCondition(password);
             }
+            else if (match.Success && nextTest == null)
+                Console.WriteLine("Hasło zgodne");
             else
                 throw new Exception("Brak specjalnych znaków");
         }

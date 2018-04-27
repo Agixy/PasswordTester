@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PasswordTester.LevelBuilders
 {
-    abstract class LevelBuilder  // interfejs
+    public abstract class LevelFactory  // interfejs
     {
     }
 }

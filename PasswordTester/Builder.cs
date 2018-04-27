@@ -8,40 +8,26 @@ using PasswordTester.Tests;
 
 namespace PasswordTester
 { 
-    public class Builder // -  ma obslugiwac rozne przypadki. Wszystkie lvle
+    public class Builder 
     {
-        public TestTemplate[] Tests = null;
+        public TestTemplate[] Tests = null;     // czy to jest potrzebne?
 
-        public Builder()        // czy ok takie podawanie długosci.?
+        public Builder(int passMinLenght)        // czy ok takie podawanie długosci.?
         {
             Tests = new TestTemplate[]
             {
-                new MinimumLengthTest(),
+                new MinimumLengthTest(passMinLenght),                   // 1 -> 1,2      2->1, 2,3      3 ->1,2,3,4
                 new NotPopularPasswordTest(),
                 new DigitInsideTest(),
                 new SpecialCharTest(),
             };
         }
 
-        public void CreateChainOfTests(int level)
+        public void CreateChainOfTests(int passLvl)
         {
-            LevelBuilder levelBuilder = null;
-
-            if (level == 1)     // lepiej switch case?
+            for (int i = 0; i < passLvl; i++)
             {
-                levelBuilder = new Level1Factory();
-            }
-            else if(level == 2)
-            {
-                levelBuilder = new Level2Builder();
-            }
-            else if(level == 3)
-            {
-                levelBuilder = new Level3Builder();
-            }
-            else
-            {
-                Console.WriteLine("błędny lvl");        // wywalic do userCom
+                Tests[i].CheckNext(Tests[i + 1]);
             }
             
         }

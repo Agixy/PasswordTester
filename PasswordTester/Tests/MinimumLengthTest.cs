@@ -15,25 +15,17 @@ namespace PasswordTester.Tests
             MinLenght = minLenght;
         }
 
-        public MinimumLengthTest()
-        {
-        }
-
         public override void CheckCondition(string password)
-        {
-            
-            if (password.Length > MinLenght)
+        {          
+            if (password.Length > MinLenght && nextTest != null)
             {
                 nextTest.CheckCondition(password);
             }
-            else
+            else if (password.Length < MinLenght && nextTest != null)
                 throw new Exception("Hasło za krotkie");
 
-
-
-   
+  
         }
-
     
     }
 }

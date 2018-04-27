@@ -1,4 +1,5 @@
 ﻿using PasswordTester;
+using PasswordTester.LevelBuilders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,38 +12,40 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Podaj hasło");            // -> uzytkownik ma wybierac
-            string password = Console.ReadLine();
-
-            Console.WriteLine("Jaki poziom hasła chcesz spradzić?");
-            int lvl = int.Parse(Console.ReadLine());
-
-            switch (lvl)
+            do
             {
-                case 1:
-                    new Level1F
-                    break;
-                case 2:
-                    Console.WriteLine();
-                    break;
-                case 3:
-                    Console.WriteLine();
-                    break;
-            }
-                
-                                                        
-            builder.CreateChainOfTests(1);  // poszczegolne poziomy hasła
-            //builder.CreateChainOfTests(2);
-            //builder.CreateChainOfTests(3);
+                Console.WriteLine("Podaj hasło");
+                string password = Console.ReadLine();
 
+                int lvl = -1;
 
+                Console.WriteLine("Jaki poziom hasła chcesz spradzić?");
+                try
+                {
+                    lvl = int.Parse(Console.ReadLine());
+                }
+                catch (FormatException e)
+                {
+                      Console.WriteLine(e.Message);
+                }
 
-            Console.WriteLine("aaa");
+            LevelFactory factory = null;
 
-            //var flow = new TestingFlow();     // robic to? -> nie
+                switch (lvl)
+                {
+                    case 1:
+                        factory = new Level1Factory(password);
+                        break;
+                    case 2:
+                        factory = new Level2Factory(password);
+                        break;
+                    case 3:
+                        factory = new Level3Factory(password);
+                        break;
+                }
 
-            //flow.Flow();
-
+            } while (true);
+                                                                        
         }
     }
 }
