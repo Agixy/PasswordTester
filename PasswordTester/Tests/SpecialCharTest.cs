@@ -9,19 +9,17 @@ namespace PasswordTester.Tests
 {
     class SpecialCharTest : TestTemplate
     {
-        public override void CheckCondition(string password)
+        public SpecialCharTest()
+        {
+            NotPassMessage = "Hasło nie zawiera znaków specjlanych";
+        }
+
+        public override bool Condition(string password)
         {
             var regex = new Regex(@"[^a-zA-Z\d\s]");  
             Match match = regex.Match(password);
 
-            if (match.Success && nextTest != null)
-            {
-                nextTest.CheckCondition(password);
-            }
-            else if (match.Success && nextTest == null)
-                Console.WriteLine("Hasło zgodne");
-            else
-                throw new Exception("Brak specjalnych znaków");
+            return match.Success;        
         }
     }
 }

@@ -8,24 +8,17 @@ namespace PasswordTester.LevelBuilders
 {
     public class Level3Factory : LevelFactory
     {
-        Builder builder = new Builder(minLenghOfPassword);
-
-        private const int passlevel = 3;
-
         private const int minLenghOfPassword = 12;
 
-        public Level3Factory(string password)
+        public Level3Factory()
         {
-            builder.CreateChainOfTests(passlevel);
+            testsChainFirstElement = new TestChainBuilder()
+                .AddMinLenghTest(minLenghOfPassword)
+                .AddNotPopularPasswordTest()
+                .AddDigitInsideTest()
+                .AddSpecialChalTest()
+                .Build();
 
-            try
-            {
-                builder.Tests[0].CheckCondition(password);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
         }
     }
 }

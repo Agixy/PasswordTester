@@ -9,17 +9,17 @@ namespace PasswordTester.Tests
 {
     class DigitInsideTest : TestTemplate
     {
-        public override void CheckCondition(string password)
+
+        public DigitInsideTest()
         {
-            var regex = new Regex(@"\D\d\D");           // jak to zrobic,?
+            NotPassMessage = "Hasło nie zawiera cyfr w środku";
+        }
+        public override bool Condition(string password)
+        {
+            var regex = new Regex(@".*\D\d+\D.*");  
             Match match = regex.Match(password);
 
-            if (match.Success && nextTest != null)
-                nextTest.CheckCondition(password);
-            else if (match.Success && nextTest == null)
-                Console.WriteLine("Hasło zgodne");
-            else
-                throw new Exception("Hasło nie zawiera cyfr w środku");
+            return match.Success;
         }
     }
 }

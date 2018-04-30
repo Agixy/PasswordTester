@@ -4,31 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PasswordTester.LevelBuilders;
+using PasswordTester.Tests;
 
 namespace PasswordTester
 {
     public class Level1Factory : LevelFactory
     {
-        Builder builder = new Builder(minLenghOfPassword);
-
-        private const int passlevel = 1;
-
         private const int minLenghOfPassword = 5;
 
-        public Level1Factory(string password)
+        public Level1Factory()
         {
-
-            builder.CreateChainOfTests(passlevel);
-
-            try
-            {
-                builder.Tests[0].CheckCondition(password);
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-          
+            testsChainFirstElement = new TestChainBuilder()
+                .AddMinLenghTest(minLenghOfPassword)
+                .AddNotPopularPasswordTest()
+                .Build();
+      
         }
     }
 }

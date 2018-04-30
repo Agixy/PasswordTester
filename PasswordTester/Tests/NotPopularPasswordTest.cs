@@ -11,18 +11,16 @@ namespace PasswordTester.Tests
     {
         private string[] popularPassFile; // zabezpieczac to jakos? readonly?
 
-        public override void CheckCondition(string password)
+        public NotPopularPasswordTest()
+        {
+            NotPassMessage = "Hasło zbyt popularne";
+        }
+
+        public override bool Condition(string password)
         {
             popularPassFile = File.ReadAllLines("PopularPasswords.txt");        // tak czy ma czytać bezposrednio z internetu?
 
-            if (!popularPassFile.Contains(password) && nextTest != null)
-            {
-                nextTest.CheckCondition(password);
-            }
-            else if (!popularPassFile.Contains(password) && nextTest == null)
-                Console.WriteLine("Hasło zgodne");
-            else                
-                throw new Exception("Hasło należy do zbyt popularnych");
+            return popularPassFile.Contains(password);         
         }
     }
 }

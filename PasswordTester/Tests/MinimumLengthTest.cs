@@ -10,22 +10,17 @@ namespace PasswordTester.Tests
     {
         private int MinLenght { get; set; }
 
+        //public const string NotPassMessage = "Hasło zbyt krotkie";
+
         public MinimumLengthTest(int minLenght)
         {
+            NotPassMessage = "Hasło zbyt krotkie";
             MinLenght = minLenght;
         }
 
-        public override void CheckCondition(string password)
-        {          
-            if (password.Length > MinLenght && nextTest != null)
-            {
-                nextTest.CheckCondition(password);
-            }
-            else if (password.Length < MinLenght && nextTest != null)
-                throw new Exception("Hasło za krotkie");
-
-  
-        }
-    
+        public override bool Condition(string password)
+        {
+            return password.Length > MinLenght;
+        }   
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 
 namespace Program
 {
@@ -34,15 +35,19 @@ namespace Program
                 switch (lvl)
                 {
                     case 1:
-                        factory = new Level1Factory(password);
+                        factory = new Level1Factory();
                         break;
                     case 2:
-                        factory = new Level2Factory(password);
+                        factory = new Level2Factory();
                         break;
                     case 3:
-                        factory = new Level3Factory(password);
+                        factory = new Level3Factory();
                         break;
                 }
+
+
+
+                factory.ExecuteTests(password);
 
             } while (true);
                                                                         
