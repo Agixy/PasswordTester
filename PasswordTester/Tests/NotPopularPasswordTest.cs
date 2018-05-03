@@ -11,16 +11,14 @@ namespace PasswordTester.Tests
     {
         private string[] popularPassFile; // zabezpieczac to jakos? readonly?
 
-        public NotPopularPasswordTest()
-        {
-            NotPassMessage = "Hasło zbyt popularne";
-        }
+        protected override string NotPassMessage => "Hasło zbyt popularne";
 
-        public override bool Condition(string password)
+
+        public override bool TestCondition(string password)
         {
             popularPassFile = File.ReadAllLines("PopularPasswords.txt");        // tak czy ma czytać bezposrednio z internetu?
 
-            return popularPassFile.Contains(password);         
+            return !popularPassFile.Contains(password);         
         }
     }
 }

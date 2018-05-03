@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using PasswordTester.LvLFactory;
 
 namespace Program
 {
@@ -35,7 +36,7 @@ namespace Program
                 switch (lvl)
                 {
                     case 1:
-                        factory = new Level1Factory();
+                        factory = new Level1Factory();      // przerobic zeby z LF wychodzily LF 1 itd..
                         break;
                     case 2:
                         factory = new Level2Factory();
@@ -45,9 +46,12 @@ namespace Program
                         break;
                 }
 
-
-
-                factory.ExecuteTests(password);
+                if(factory != null)
+                    Console.WriteLine(factory.ExecuteTests(password));         
+                else
+                {
+                    Console.WriteLine("Błąd sprawdzania");  // jakis wyjatek?
+                }
 
             } while (true);
                                                                         

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PasswordTester.LevelBuilders;
+using PasswordTester.LvLFactory;
 using PasswordTester.Tests;
 
 namespace PasswordTester
@@ -14,7 +15,7 @@ namespace PasswordTester
 
         public Level1Factory()
         {
-            testsChainFirstElement = new TestChainBuilder()
+            TestsChainFirstElement = new TestChainBuilder()
                 .AddMinLenghTest(minLenghOfPassword)
                 .AddNotPopularPasswordTest()
                 .Build();

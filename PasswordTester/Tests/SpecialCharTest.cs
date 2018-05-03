@@ -9,12 +9,9 @@ namespace PasswordTester.Tests
 {
     class SpecialCharTest : TestTemplate
     {
-        public SpecialCharTest()
-        {
-            NotPassMessage = "Hasło nie zawiera znaków specjlanych";
-        }
+        protected override string NotPassMessage => "Hasło nie zawiera znaków specjalnych";
 
-        public override bool Condition(string password)
+        public override bool TestCondition(string password)
         {
             var regex = new Regex(@"[^a-zA-Z\d\s]");  
             Match match = regex.Match(password);

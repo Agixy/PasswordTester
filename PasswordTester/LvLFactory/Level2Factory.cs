@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PasswordTester.LvLFactory;
 
 namespace PasswordTester.LevelBuilders
 {
@@ -12,7 +13,7 @@ namespace PasswordTester.LevelBuilders
 
         public Level2Factory()
         {
-            testsChainFirstElement = new TestChainBuilder()
+            TestsChainFirstElement = new TestChainBuilder()
                 .AddMinLenghTest(MinLenghOfPassword)
                 .AddNotPopularPasswordTest()
                 .AddDigitInsideTest()

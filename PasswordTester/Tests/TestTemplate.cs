@@ -11,26 +11,28 @@ namespace PasswordTester.Tests
     {
         protected TestTemplate NextTest;
 
-        public string NotPassMessage;
+        protected abstract string NotPassMessage { get; }
 
-        protected const string SuccessMessage = "Hasło zgodne";     // private
+        private const string SuccessMessage = "Hasło zgodne";
 
-        public abstract bool Condition(string password);
+        public abstract bool TestCondition(string password);
 
         public void SetNext(TestTemplate test)
         {
             NextTest = test;
         }
 
-        public string StartCheckingFlow(bool condition, string notPassMessage, string password)
+        public string StartCheckingFlow(string password)
         {
-            if (Condition(password) && NextTest != null)
-                return NextTest.StartCheckingFlow(NextTest.Condition(password), NextTest.NotPassMessage, password);
+            var isPassingTest = TestCondition(password);
 
-            if (Condition(password) && NextTest != null)
+            if (isPassingTest && NextTest != null)
+                return NextTest.StartCheckingFlow(password);
+
+            if (isPassingTest && NextTest == null)
                 return SuccessMessage;
 
-            return notPassMessage;
+            return NotPassMessage;
         }
 
     }

@@ -1,26 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PasswordTester.Tests;
+﻿using PasswordTester.Tests;
 
-namespace PasswordTester.LevelBuilders
+namespace PasswordTester.LvLFactory
 {
-    public abstract class LevelFactory  // interfejs
+    public abstract class LevelFactory
     {
-        protected TestTemplate testsChainFirstElement;
+        protected TestTemplate TestsChainFirstElement;
 
-        public void ExecuteTests(string password)
-        {
-            try
-            {
-                testsChainFirstElement.StartCheckingFlow(testsChainFirstElement.Condition(password), testsChainFirstElement.NotPassMessage, password);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+        public string ExecuteTests(string password)
+        {        
+              return TestsChainFirstElement.StartCheckingFlow(password);         
         }
     }
 }
