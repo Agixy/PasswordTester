@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PasswordTester.LevelBuilders;
-using PasswordTester.LvLFactory;
+using PasswordTester;
 using PasswordTester.Tests;
 
-namespace PasswordTester
+namespace PasswordTester.LvlFactory
 {
-    public class Level1Factory : LevelFactory
+    public class TestsExecutorLvl1 : TestsExecutor
     {
         private const int minLenghOfPassword = 5;
 
-        public Level1Factory()
+        public TestsExecutorLvl1()
         {
             TestsChainFirstElement = new TestChainBuilder()
                 .AddMinLenghTest(minLenghOfPassword)

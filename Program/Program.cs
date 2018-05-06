@@ -1,12 +1,11 @@
 ﻿using PasswordTester;
-using PasswordTester.LevelBuilders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
-using PasswordTester.LvLFactory;
+using PasswordTester.LvlFactory;
 
 namespace Program
 {
@@ -14,6 +13,8 @@ namespace Program
     {
         static void Main(string[] args)
         {
+            var factory = new TestExecutorFactory();
+
             do
             {
                 Console.WriteLine("Podaj hasło");
@@ -31,23 +32,10 @@ namespace Program
                       Console.WriteLine(e.Message);
                 }
 
-            LevelFactory factory = null;
-
-                switch (lvl)
-                {
-                    case 1:
-                        factory = new Level1Factory();      // przerobic zeby z LF wychodzily LF 1 itd..
-                        break;
-                    case 2:
-                        factory = new Level2Factory();
-                        break;
-                    case 3:
-                        factory = new Level3Factory();
-                        break;
-                }
-
-                if(factory != null)
-                    Console.WriteLine(factory.ExecuteTests(password));         
+                var testsExecutor = factory.CreateExecutor(lvl);
+              
+                if(testsExecutor != null)
+                    Console.WriteLine(testsExecutor.ExecuteTests(password));         
                 else
                 {
                     Console.WriteLine("Błąd sprawdzania");  // jakis wyjatek?

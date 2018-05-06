@@ -1,9 +1,9 @@
 ﻿using PasswordTester.Tests;
 
-namespace PasswordTester.LvLFactory
+namespace PasswordTester
 {
-    public abstract class LevelFactory
-    {
+    public abstract class TestsExecutor
+    {    
         protected TestTemplate TestsChainFirstElement;
 
         public string ExecuteTests(string password)

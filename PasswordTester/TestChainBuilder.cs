@@ -10,12 +10,11 @@ namespace PasswordTester
 { 
     public class TestChainBuilder 
     {
-        public List<TestTemplate> Tests;     // czy to jest potrzebne?
+        public List<TestTemplate> Tests; 
 
-        public TestChainBuilder()        // czy ok takie podawanie długosci.?
+        public TestChainBuilder()    
         {
             Tests = new List<TestTemplate>();
-
         }
 
 
@@ -51,7 +50,6 @@ namespace PasswordTester
             }
 
             return Tests.First();
-        }
-      
+        }     
     }
 }

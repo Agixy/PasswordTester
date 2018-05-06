@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PasswordTester.LvLFactory;
+using PasswordTester;
 
-namespace PasswordTester.LevelBuilders
+namespace PasswordTester.LvlFactory
 {
-    public class Level3Factory : LevelFactory
+    public class TestsExecutorLvl3 : TestsExecutor
     {
         private const int minLenghOfPassword = 12;
 
-        public Level3Factory()
+        public TestsExecutorLvl3()
         {
             TestsChainFirstElement = new TestChainBuilder()
                 .AddMinLenghTest(minLenghOfPassword)
@@ -19,7 +19,6 @@ namespace PasswordTester.LevelBuilders
                 .AddDigitInsideTest()
                 .AddSpecialChalTest()
                 .Build();
-
         }
     }
 }
