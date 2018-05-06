@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PasswordTester;
-
-namespace PasswordTester.LvlFactory
+﻿namespace PasswordTester.TestsExecutors
 {
-    public class TestsExecutorLvl3 : TestsExecutor
+    internal class TestsExecutorLvl3 : TestsExecutor
     {
-        private const int minLenghOfPassword = 12;
+        private const int MinLenghOfPassword = 12;
 
         public TestsExecutorLvl3()
         {
             TestsChainFirstElement = new TestChainBuilder()
-                .AddMinLenghTest(minLenghOfPassword)
+                .AddMinLenghTest(MinLenghOfPassword)
                 .AddNotPopularPasswordTest()
                 .AddDigitInsideTest()
                 .AddSpecialChalTest()

@@ -1,11 +1,6 @@
-﻿using PasswordTester;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using JetBrains.Annotations;
-using PasswordTester.LvlFactory;
+using PasswordTester.TestsExecutors;
 
 namespace Program
 {
@@ -33,14 +28,8 @@ namespace Program
                 }
 
                 var testsExecutor = factory.CreateExecutor(lvl);
-              
-                if(testsExecutor != null)
-                    Console.WriteLine(testsExecutor.ExecuteTests(password));         
-                else
-                {
-                    Console.WriteLine("Błąd sprawdzania");  // jakis wyjatek?
-                }
 
+                Console.WriteLine(testsExecutor != null ? testsExecutor.ExecuteTests(password) : "Błąd sprawdzania");
             } while (true);
                                                                         
         }

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PasswordTester;
-
-namespace PasswordTester.LvlFactory
+﻿namespace PasswordTester.TestsExecutors
 {
-    public class TestsExecutorLvl2 : TestsExecutor
+    internal class TestsExecutorLvl2 : TestsExecutor
     {
         private const int MinLenghOfPassword = 8;
 
@@ -18,7 +11,6 @@ namespace PasswordTester.LvlFactory
                 .AddNotPopularPasswordTest()
                 .AddDigitInsideTest()
                 .Build();
-
         }
     }
 }

@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PasswordTester.LevelBuilders;
 using PasswordTester.Tests;
 
 namespace PasswordTester
-{ 
-    public class TestChainBuilder 
+{
+    internal class TestChainBuilder 
     {
-        public List<TestTemplate> Tests; 
+        public List<TestTemplate> Tests;
 
-        public TestChainBuilder()    
+        internal TestChainBuilder()
         {
             Tests = new List<TestTemplate>();
         }
-
 
         public TestChainBuilder AddMinLenghTest(int passMinLenght)
         {
